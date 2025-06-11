@@ -2,15 +2,17 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['../auth.component.scss'],
   imports: [CommonModule, FormsModule],
 })
 export class LoginComponent {
   authService = inject(AuthService); // Hier wird der AuthService injiziert, um Login-Logik zu verwenden
+  router: Router = inject(Router);
 
   email: string = '';
   password: string = '';
@@ -34,5 +36,10 @@ export class LoginComponent {
   passwordValidation() {
     // Hier kann eine Passwort-Validierung implementiert werden
     return this.password && this.password.length >= 6;
+  }
+
+  navigateToRegister() {
+    // Navigation zur Registrierungsseite
+    this.router.navigate(['/register']);
   }
 }
