@@ -25,4 +25,14 @@ export class LoginComponent {
       },
     });
   }
+
+  emailValidation() {
+    // Hier kann eine E-Mail-Validierung implementiert werden
+    return this.email && this.email.includes('@');
+  }
+
+  passwordValidation() {
+    // Hier kann eine Passwort-Validierung implementiert werden
+    return this.password && this.password.length >= 6;
+  }
 }

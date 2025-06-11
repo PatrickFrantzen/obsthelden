@@ -1,20 +1,57 @@
-<div class="login-container">
-  <h2>Login</h2>
-  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" id="email" name="email" [(ngModel)]="email" required />
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        [(ngModel)]="password"
-        required
-      />
-    </div>
-    <button type="submit" [disabled]="!loginForm.form.valid">Login</button>
-  </form>
+<div class="login-page">
+  <h1 class="logo">🍎 Obsthelden</h1>
+
+  <div class="card">
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="auth-form">
+      <div class="form-group">
+        <label for="email">E-Mail</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="name@beispiel.de"
+          required
+          name="email"
+          aria-label="E-Mail-Adresse eingeben"
+          aria-required="true"
+          [(ngModel)]="email"
+        />
+      </div>
+
+      <div class="form-group password-group">
+        <label for="password">Passwort</label>
+        <div class="password-wrapper">
+          <input
+            id="password"
+            type="password"
+            placeholder="••••••••"
+            required
+            name="password"
+            aria-label="Passwort eingeben"
+            aria-required="true"
+            [(ngModel)]="password"
+          />
+          <button
+            type="button"
+            class="toggle-visibility"
+            aria-label="Passwort anzeigen"
+          >
+            👁
+          </button>
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button
+          [disabled]="!loginForm.form.valid"
+          type="submit"
+          class="btn primary"
+          [ngClass]="{ disabled: !loginForm.form.valid }"
+          aria-label="Anmelden"
+        >
+          Anmelden
+        </button>
+        <button type="button" class="btn secondary">Registrieren</button>
+      </div>
+    </form>
+  </div>
 </div>
