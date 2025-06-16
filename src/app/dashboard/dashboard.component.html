@@ -1,0 +1,38 @@
+<div class="dashboard">
+  <h2>👋 Hallo, {{ userName || "Elternteil" }}!</h2>
+
+  <section class="toggle-section">
+    <label class="toggle">
+      <input type="checkbox" [(ngModel)]="showCompleted" />
+      <span>Erledigte Aufgaben anzeigen</span>
+    </label>
+  </section>
+
+  <section class="tasks-section">
+    <h3>Aufgaben</h3>
+    <ul class="task-list">
+      <li class="task-card" *ngFor="let task of filteredTasks()">
+        <div class="task-content">
+          <h4>{{ task.title }}</h4>
+          <p>{{ task.description }}</p>
+          <small>Für: {{ task.childName }}</small>
+        </div>
+        <div class="status">
+          <span [class.done]="task.done">✔</span>
+        </div>
+      </li>
+    </ul>
+    <p *ngIf="filteredTasks().length === 0">
+      Keine passenden Aufgaben gefunden.
+    </p>
+  </section>
+
+  <!-- Floating Action Button -->
+  <button
+    class="fab"
+    (click)="navigateToNewTask()"
+    aria-label="Neue Aufgabe erstellen"
+  >
+    ＋
+  </button>
+</div>

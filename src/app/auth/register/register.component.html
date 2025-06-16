@@ -1,96 +1,94 @@
 <div class="login-page">
-    <h1 class="logo">🍎 Obsthelden</h1>
-  
-    <div class="card">
-      <form (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm" class="auth-form">
-  
-        <div class="form-group">
-          <label for="email">E-Mail</label>
+  <h1 class="logo">🍎 Obsthelden</h1>
+
+  <div class="card">
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="auth-form">
+      <div class="form-group">
+        <label for="email">E-Mail</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="name@beispiel.de"
+          required
+          name="email"
+          [(ngModel)]="email"
+          aria-label="E-Mail-Adresse eingeben"
+          aria-required="true"
+        />
+      </div>
+
+      <div class="form-group password-group">
+        <label for="password">Passwort</label>
+        <div class="password-wrapper">
           <input
-            id="email"
-            type="email"
-            placeholder="name@beispiel.de"
+            id="password"
+            type="password"
+            placeholder="••••••••"
             required
-            name="email"
-            [(ngModel)]="email"
-            aria-label="E-Mail-Adresse eingeben"
+            name="password"
+            [(ngModel)]="password"
+            aria-label="Passwort eingeben"
             aria-required="true"
           />
-        </div>
-  
-        <div class="form-group password-group">
-          <label for="password">Passwort</label>
-          <div class="password-wrapper">
-            <input
-              id="password"
-              type="password"
-              placeholder="••••••••"
-              required
-              name="password"
-              [(ngModel)]="password"
-              aria-label="Passwort eingeben"
-              aria-required="true"
-            />
-            <button
-              type="button"
-              class="toggle-visibility"
-              aria-label="Passwort anzeigen"
-            >
-              👁
-            </button>
-          </div>
-        </div>
-  
-        <div class="form-group">
-          <label for="parentName">Name der Eltern</label>
-          <input
-            id="parentName"
-            type="text"
-            placeholder="z. B. Max Mustermann"
-            name="parentName"
-            [(ngModel)]="parentName"
-          />
-        </div>
-  
-        <div class="form-group">
-          <label for="childName">Name des Kindes</label>
-          <input
-            id="childName"
-            type="text"
-            placeholder="z. B. Emil"
-            name="childName"
-            [(ngModel)]="childName"
-          />
-        </div>
-  
-        <div class="form-group">
-          <label for="childAge">Alter des Kindes</label>
-          <input
-            id="childAge"
-            type="number"
-            min="1"
-            max="12"
-            placeholder="z. B. 6"
-            name="childAge"
-            [(ngModel)]="childAge"
-          />
-        </div>
-  
-        <div class="button-group">
           <button
-            [disabled]="!registerForm.form.valid"
-            type="submit"
-            class="btn primary"
-            [ngClass]="{ disabled: !registerForm.form.valid }"
-            aria-label="Registrieren"
+            type="button"
+            class="toggle-visibility"
+            aria-label="Passwort anzeigen"
           >
-            Registrieren
-          </button>
-          <button type="button" class="btn secondary" (click)="navigateToLogin()">
-            Zurück
+            👁
           </button>
         </div>
-      </form>
-    </div>
+      </div>
+
+      <div class="form-group">
+        <label for="parentName">Name der Eltern</label>
+        <input
+          id="parentName"
+          type="text"
+          placeholder="z. B. Max Mustermann"
+          name="parentName"
+          [(ngModel)]="parentName"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="childName">Name des Kindes</label>
+        <input
+          id="childName"
+          type="text"
+          placeholder="z. B. Emil"
+          name="childName"
+          [(ngModel)]="childName"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="childAge">Alter des Kindes</label>
+        <input
+          id="childAge"
+          type="number"
+          min="1"
+          max="12"
+          placeholder="z. B. 6"
+          name="childAge"
+          [(ngModel)]="childAge"
+        />
+      </div>
+
+      <div class="button-group">
+        <button
+          [disabled]="!registerForm.form.valid"
+          type="submit"
+          class="btn primary"
+          [ngClass]="{ disabled: !registerForm.form.valid }"
+          aria-label="Registrieren"
+        >
+          Registrieren
+        </button>
+        <button type="button" class="btn secondary" (click)="navigateToLogin()">
+          Zurück
+        </button>
+      </div>
+    </form>
   </div>
-  
+</div>
